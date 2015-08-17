@@ -6,7 +6,6 @@ Terraform templates for AWS
 
 * cloudwatch
 * autoscaling
-* S3
 
 ## Author
 
