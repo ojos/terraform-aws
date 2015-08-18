@@ -1,10 +1,10 @@
 resource "aws_elb" "default" {
   name = "${var.environment}"
-  availability_zones = ["${var.region}a", "${var.region}c"]
+  subnets = ["${aws_subnet.default-a.id}", "${aws_subnet.default-c.id}"]
   security_groups = ["${aws_security_group.default.id}"]
 
   listener {
-    instance_port = 8080
+    instance_port = 8000
     instance_protocol = "http"
     lb_port = 80
     lb_protocol = "http"
