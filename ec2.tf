@@ -1,5 +1,5 @@
 variable "ec2_ami" {
-  default = "ami-cbf90ecb"
+  default = "ami-383c1956"
 }
 
 variable "ec2_type" {
