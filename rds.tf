@@ -78,47 +78,47 @@ resource "aws_db_parameter_group" "default" {
 
     parameter {
         name = "init_connect"
-        value = "SET SESSION time_zone = CASE WHEN POSITION('rds' IN CURRENT_USER()) = 1 THEN 'UTC' ELSE 'Asia/Tokyo' END;"
+        value = "SET NAMES utf8mb4;"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_client"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_connection"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_database"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_filesystem"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_results"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "character_set_server"
-        value = "utf8"
+        value = "utf8mb4"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "collation_server"
-        value = "utf8_general_ci"
+        value = "utf8mb4_general_ci"
         apply_method = "pending-reboot"
     }
     parameter {
         name = "skip-character-set-client-handshake"
-        value = 0
+        value = 1
         apply_method = "pending-reboot"
     }
     parameter {
@@ -174,6 +174,21 @@ resource "aws_db_parameter_group" "default" {
     parameter {
         name = "innodb_buffer_pool_load_at_startup"
         value = 1
+        apply_method = "pending-reboot"
+    }
+    parameter {
+        name = "innodb_file_format"
+        value = "Barracuda"
+        apply_method = "pending-reboot"
+    }
+    parameter {
+        name = "innodb_large_prefix"
+        value = 1
+        apply_method = "pending-reboot"
+    }
+    parameter {
+        name = "collation_connection"
+        value = "utf8mb4_general_ci"
         apply_method = "pending-reboot"
     }
 }
