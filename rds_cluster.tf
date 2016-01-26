@@ -1,5 +1,5 @@
 variable "rds_cluster_password" {
-    default = "Jb2ulhUGqkbkFhWS"
+    default = "password"
 }
 
 variable "rds_cluster_preferred_backup_window" {

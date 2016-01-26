@@ -4,7 +4,7 @@ resource "aws_route53_zone" "default" {
 
 resource "aws_route53_record" "default" {
   zone_id = "${aws_route53_zone.default.zone_id}"
-  name = "drive.bascule.co.jp"
+  name = "example.co.jp"
   type = "A"
 
   alias {
