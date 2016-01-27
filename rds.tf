@@ -97,11 +97,6 @@ resource "aws_db_parameter_group" "default" {
         apply_method = "pending-reboot"
     }
     parameter {
-        name = "character_set_filesystem"
-        value = "utf8mb4"
-        apply_method = "pending-reboot"
-    }
-    parameter {
         name = "character_set_results"
         value = "utf8mb4"
         apply_method = "pending-reboot"
@@ -122,73 +117,18 @@ resource "aws_db_parameter_group" "default" {
         apply_method = "pending-reboot"
     }
     parameter {
-        name = "slow_query_log"
-        value = 1
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "long_query_time"
-        value = 0.5
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "max_heap_table_size"
-        value = 33554432
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "tmp_table_size"
-        value = 33554432
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "query_cache_size"
-        value = 0
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "thread_cache_size"
-        value = 32
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "innodb_lock_wait_timeout"
-        value = 2
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "innodb_max_dirty_pages_pct"
-        value = 95
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "slow_launch_time"
-        value = 1
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "innodb_buffer_pool_dump_at_shutdown"
-        value = 1
-        apply_method = "pending-reboot"
-    }
-    parameter {
-        name = "innodb_buffer_pool_load_at_startup"
-        value = 1
-        apply_method = "pending-reboot"
-    }
-    parameter {
         name = "innodb_file_format"
         value = "Barracuda"
         apply_method = "pending-reboot"
     }
     parameter {
-        name = "innodb_large_prefix"
+        name = "innodb_file_per_table"
         value = 1
         apply_method = "pending-reboot"
     }
     parameter {
-        name = "collation_connection"
-        value = "utf8mb4_general_ci"
+        name = "innodb_large_prefix"
+        value = 1
         apply_method = "pending-reboot"
     }
 }
