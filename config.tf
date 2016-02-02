@@ -3,9 +3,16 @@ variable "environment" {
 }
 variable "project" {}
 variable "owner" {}
-variable "access_key" {}
-variable "secret_key" {}
-variable "region" {}
+variable "aws_access_key_id" {}
+variable "aws_secret_access_key" {}
+variable "aws_default_region" {}
+variable "aws_default_availability_zone" {}
+variable "aws_default_security_group" {}
+variable "aws_default_subnet_id" {}
+variable "aws_default_vpc_id" {}
+variable "aws_default_username" {}
+variable "aws_default_instance_type" {}
+variable "aws_default_ec2_ami" {}
 variable "public_key" {}
 
 provider "aws" {

@@ -4,8 +4,7 @@ Terraform templates for AWS
 
 ## TODO
 
-* cloudwatch
-* autoscaling
+* cloudfront
 
 ## Author
 
