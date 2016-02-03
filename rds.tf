@@ -44,14 +44,14 @@ variable "rds_parameter_family" {
  
 
 resource "aws_db_instance" "default" {
-    identifier = "${var.environment}"
+    identifier = "${var.project}-${var.environment}"
     allocated_storage = "${var.rds_storage}"
     engine = "${var.rds_engine}"
     engine_version = "${var.rds_engine_version}"
     instance_class = "${var.rds_type}"
     storage_type = "${var.rds_storage_type}"
     # iops = 1000
-    name = "${var.project}"
+    name = "${var.project}${var.environment}"
     username = "${var.project}"
     password = "${var.rds_password}"
     availability_zone = "${var.region}c"
@@ -66,15 +66,15 @@ resource "aws_db_instance" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
-    name = "${var.environment}"
-    description = "${var.environment} subnet group"
+    name = "${var.project}-${var.environment}"
+    description = "${var.project}-${var.environment} subnet group"
     subnet_ids = ["${aws_subnet.default-a.id}", "${aws_subnet.default-c.id}"]
 }
 
 resource "aws_db_parameter_group" "default" {
-    name = "${var.environment}"
+    name = "${var.project}-${var.environment}"
     family = "${var.rds_parameter_family}"
-    description = "${var.environment} parameter group"
+    description = "${var.project}-${var.environment} parameter group"
 
     parameter {
         name = "init_connect"

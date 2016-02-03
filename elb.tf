@@ -1,5 +1,5 @@
 resource "aws_elb" "default" {
-  name = "${var.environment}"
+  name = "${var.project}-${var.environment}"
   subnets = ["${aws_subnet.default-a.id}", "${aws_subnet.default-c.id}"]
   security_groups = ["${aws_security_group.default.id}"]
 
@@ -33,6 +33,6 @@ resource "aws_elb" "default" {
   connection_draining_timeout = 400
 
   tags {
-    Name = "${var.environment}"
+    Name = "${var.project}-${var.environment}"
   }
 }

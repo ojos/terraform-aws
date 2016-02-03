@@ -7,7 +7,7 @@ variable "elasticache_engine" {
 }
 
 variable "elasticache_engine_version" {
-    default = "2.8.21"
+    default = "2.8.22"
 }
 
 
@@ -29,7 +29,7 @@ variable "elasticache_parameter_family" {
  
 
 resource "aws_elasticache_cluster" "default" {
-    cluster_id = "${var.environment}"
+    cluster_id = "${var.project}-${var.environment}"
     engine = "${var.elasticache_engine}"
     engine_version = "${var.elasticache_engine_version}"
     node_type = "${var.elasticache_type}"
@@ -41,18 +41,18 @@ resource "aws_elasticache_cluster" "default" {
     maintenance_window = "${var.elasticache_maintenance_window}"
     apply_immediately = true
     tags {
-        Name = "${var.environment}"
+        Name = "${var.project}-${var.environment}"
     }
 }
 
 resource "aws_elasticache_parameter_group" "default" {
-    name = "${var.environment}"
+    name = "${var.project}-${var.environment}"
     family = "${var.elasticache_parameter_family}"
-    description = "${var.environment} param group"
+    description = "${var.project}-${var.environment} param group"
 }
 
 resource "aws_elasticache_subnet_group" "default" {
-    name = "${var.environment}"
-    description = "${var.environment} subnet group"
+    name = "${var.project}-${var.environment}"
+    description = "${var.project}-${var.environment} subnet group"
     subnet_ids = ["${aws_subnet.default-a.id}", "${aws_subnet.default-c.id}"]
 }

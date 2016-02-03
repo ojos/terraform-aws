@@ -1,6 +1,6 @@
 resource "aws_security_group" "default" {
-    name = "${var.environment}"
-    description = "${var.environment} security group"
+    name = "${var.project}-${var.environment}"
+    description = "${var.project}-${var.environment} security group"
     vpc_id = "${aws_vpc.default.id}"
  
     ingress {

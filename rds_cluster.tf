@@ -15,9 +15,9 @@ variable "rds_cluster_instance_class" {
 }
 
 resource "aws_rds_cluster" "default" {
-    cluster_identifier = "${var.environment}"
+    cluster_identifier = "${var.project}-${var.environment}"
     availability_zones = ["${var.region}a","${var.region}c"]
-    database_name = "${var.environment}"
+    database_name = "${var.project}${var.environment}"
     master_username = "${var.project}"
     master_password = "${var.rds_cluster_password}"
     vpc_security_group_ids = ["${aws_security_group.default.id}"]
@@ -28,7 +28,7 @@ resource "aws_rds_cluster" "default" {
 }
 
 resource "aws_db_subnet_group" "default" {
-    name = "${var.environment}"
+    name = "${var.project}-${var.environment}"
     description = "${var.project}-${var.environment} subnet group"
     subnet_ids = ["${aws_subnet.default-a.id}", "${aws_subnet.default-c.id}"]
 }
@@ -50,9 +50,9 @@ resource "aws_rds_cluster_instance" "reader" {
 }
 
 resource "aws_db_parameter_group" "default" {
-    name = "${var.environment}"
+    name = "${var.project}-${var.environment}"
     family = "${var.rds_parameter_family}"
-    description = "${var.environment} parameter group"
+    description = "${var.project}-${var.environment} parameter group"
 
     parameter {
         name = "init_connect"

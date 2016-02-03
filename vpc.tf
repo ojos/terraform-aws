@@ -15,14 +15,14 @@ resource "aws_vpc" "default" {
     enable_dns_support = true
     enable_dns_hostnames = true
     tags {
-        Name = "${var.project}"
+        Name = "${var.project}-${var.environment}"
     }
 }
 
 resource "aws_internet_gateway" "default" {
     vpc_id = "${aws_vpc.default.id}"
     tags {
-        Name = "${var.project}"
+        Name = "${var.project}-${var.environment}"
     }
 }
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "default-a" {
     cidr_block = "${var.subnet_a_cidr}"
     availability_zone = "${var.region}a"
     tags {
-        Name = "${var.project}-a"
+        Name = "${var.project}-${var.environment}-a"
     }
 }
 
@@ -40,7 +40,7 @@ resource "aws_subnet" "default-c" {
     cidr_block = "${var.subnet_c_cidr}"
     availability_zone = "${var.region}c"
     tags {
-        Name = "${var.project}-c"
+        Name = "${var.project}-${var.environment}-c"
     }
 }
 
@@ -51,7 +51,7 @@ resource "aws_route_table" "default" {
         gateway_id = "${aws_internet_gateway.default.id}"
     }
     tags {
-        Name = "${var.project}"
+        Name = "${var.project}-${var.environment}"
     }
 }
 
