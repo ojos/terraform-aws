@@ -24,4 +24,5 @@ resource "aws_instance" "default" {
 
 resource "aws_eip" "default" {
     instance = "${aws_instance.default.id}"
+    vpc = true
 }

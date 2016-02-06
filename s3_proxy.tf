@@ -3,7 +3,7 @@ variable "s3_acl" {
 }
 
 variable "s3_backet" {
-  default = "${var.project}-${var.environment}"
+  default = "toyotown.newers.net"
 }
 
 resource "aws_s3_bucket" "default" {
@@ -14,5 +14,5 @@ resource "aws_s3_bucket" "default" {
         Name = "${var.environment}"
     }
 
-    policy = "{\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":\"arn:aws:s3:::${var.s3_backet}/*\",\"Condition\":{\"NotIpAddress\":{\"aws:SourceIp\":\"${aws_eip.default.public_ip}\"}}}]}"
+    policy = "{\"Statement\":[{\"Effect\":\"Deny\",\"Principal\":\"*\",\"Action\":\"s3:GetObject\",\"Resource\":\"arn:aws:s3:::${var.s3_backet}/*\",\"Condition\":{\"NotIpAddress\":{\"aws:SourceIp\":\"${aws_eip.default.public_ip}\"}}}]}"
 }
