@@ -54,7 +54,7 @@ resource "aws_db_instance" "default" {
     name = "${var.project}${var.environment}"
     username = "${var.project}"
     password = "${var.rds_password}"
-    availability_zone = "${var.region}c"
+    availability_zone = "${var.aws_default_region}c"
     multi_az = "${var.rds_multi_az}"
     vpc_security_group_ids = ["${aws_security_group.default.id}"]
     db_subnet_group_name = "${aws_db_subnet_group.default.id}"

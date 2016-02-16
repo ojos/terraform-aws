@@ -16,7 +16,7 @@ variable "rds_cluster_instance_class" {
 
 resource "aws_rds_cluster" "default" {
     cluster_identifier = "${var.project}-${var.environment}"
-    availability_zones = ["${var.region}a","${var.region}c"]
+    availability_zones = ["${var.aws_default_region}a","${var.aws_default_region}c"]
     database_name = "${var.project}${var.environment}"
     master_username = "${var.project}"
     master_password = "${var.rds_cluster_password}"

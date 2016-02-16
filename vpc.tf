@@ -29,7 +29,7 @@ resource "aws_internet_gateway" "default" {
 resource "aws_subnet" "default-a" {
     vpc_id = "${aws_vpc.default.id}"
     cidr_block = "${var.subnet_a_cidr}"
-    availability_zone = "${var.region}a"
+    availability_zone = "${var.aws_default_region}a"
     tags {
         Name = "${var.project}-${var.environment}-a"
     }
@@ -38,7 +38,7 @@ resource "aws_subnet" "default-a" {
 resource "aws_subnet" "default-c" {
     vpc_id = "${aws_vpc.default.id}"
     cidr_block = "${var.subnet_c_cidr}"
-    availability_zone = "${var.region}c"
+    availability_zone = "${var.aws_default_region}c"
     tags {
         Name = "${var.project}-${var.environment}-c"
     }
