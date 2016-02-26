@@ -39,7 +39,7 @@ variable "rds_maintenance_window" {
 }
 
 variable "rds_parameter_family" {
-    default = "mysql5.6"
+    default = "mysql5.7"
 }
  
 
