@@ -7,7 +7,7 @@ variable "rds_engine" {
 }
 
 variable "rds_engine_version" {
-    default = "5.6.23"
+    default = "5.7.10"
 }
 
 variable "rds_type" {

@@ -7,7 +7,7 @@ variable "elasticache_engine" {
 }
 
 variable "elasticache_engine_version" {
-    default = "2.8.22"
+    default = "2.8.24"
 }
 
 
