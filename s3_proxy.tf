@@ -3,7 +3,7 @@ variable "s3_acl" {
 }
 
 variable "s3_backet" {
-  default = "toyotown.newers.net"
+  default = "bucket_name"
 }
 
 resource "aws_s3_bucket" "default" {
